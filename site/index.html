@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JAZY — Rock desde Barcelona</title>
+
+<!-- Fuente Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght&display=swap" rel="stylesheet">
+
+<style>
+/* ==================== BASE ==================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #080808;
+  color: #f2f2f2;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* ==================== NAV ==================== */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 7vw;
+  mix-blend-mode: difference;
+}
+
+nav img {
+  width: 75px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 52px;
+  color: #fff;
+  font-family: "League Spartan", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0,0,0,.9);
+}
+
+.nav-links a {
+  transition: color .2s;
+}
+
+.nav-links a:hover {
+  color: #cc3333;
+}
+
+
+/* ==================== HERO ==================== */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 7vw 8vh;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.1)),
+    url("images/press/luz-amarilla-1.jpg") center center / cover no-repeat;
+}
+
+.hero-logo {
+  position: absolute;
+  left: 50%;
+  bottom: -145px;
+  transform: translateX(-50%);
+  width: auto;
+  max-width: 80vw;
+  max-height: 80vh;
+  height: auto;
+  object-fit: contain;
+  z-index: 2;
+  filter: invert(1);
+}
+
+
+/* ==================== SECCIONES ==================== */
+
+.section {
+  padding: 100px 7vw;
+  border-top: 1px solid #222;
+}
+
+.section-header {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-family: "League Spartan", sans-serif;
+  font-weight: 700;
+  font-size: clamp(48px, 8vw, 90px);
+  line-height: .82;
+  letter-spacing: -.06em;
+  text-transform: uppercase;
+}
+
+.section-title-left {
+  text-align: left;
+}
+
+.section-title-center {
+  text-align: center;
+}
+
+.section-title-right {
+  text-align: right;
+}
+
+
+/* ==================== BANDA ==================== */
+
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.member {
+  width: 100%;
+  min-width: 0;
+}
+
+.member-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #151515;
+  border: 1px solid #292929;
+}
+
+.member-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.member-info {
+  margin-top: 12px;
+}
+
+.member-info h3 {
+  font-family: "League Spartan", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  color: #f2f2f2;
+}
+
+.member-info p {
+  margin-top: 4px;
+  font-family: "Inter", sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  opacity: .6;
+  color: #f2f2f2;
+}
+
+
+/* ==================== MUSICA ==================== */
+
+.music-box {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.music-layout-clean {
+  display: grid;
+  grid-template-columns: 500px 220px;
+  column-gap: 100px;
+  align-items: center;
+  width: 820px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.music-player-clean {
+  width: 500px;
+  max-width: 100%;
+}
+
+.music-player-clean iframe {
+  display: block;
+  width: 100%;
+  height: 120px;
+  border: 0;
+}
+
+.music-platforms-clean {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 18px;
+}
+
+.music-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  transition: color .2s;
+}
+
+.music-link:hover {
+  color: #cc3333;
+}
+
+.music-link i {
+  font-size: 20px;
+}
+
+
+/* ==================== CONTACTO ==================== */
+
+.contact-layout-clean {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(240px, .8fr);
+  gap: 90px;
+  align-items: center;
+  margin-top: 45px;
+}
+
+.contact-photo-clean {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+}
+
+.contact-info-clean {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.contact-info-clean .contact-item {
+  text-align: right;
+  margin-bottom: 28px;
+}
+
+.contact-item h4 {
+  margin-bottom: 6px;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  opacity: .4;
+  color: #f2f2f2;
+}
+
+.contact-item a {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: #f2f2f2;
+}
+
+.contact-item a:hover {
+  color: #cc3333;
+}
+
+.contact-presskit {
+  display: block;
+  width: 100%;
+  padding: 11px 16px;
+  border: 1px solid #292929;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  transition: all .25s ease;
+}
+
+.contact-presskit:hover {
+  background: #cc3333;
+  border-color: #cc3333;
+  color: #0d0d0d;
+}
+
+
+/* ==================== FOOTER ==================== */
+
+footer {
+  padding: 60px 7vw;
+  border-top: 1px solid #222;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .5;
+}
+
+footer a {
+  color: #f2f2f2;
+}
+
+footer a:hover {
+  color: #cc3333;
+  opacity: 1;
+}
+
+
+/* ==================== MOBILE ==================== */
+
+@media (max-width: 800px) {
+
+  nav {
+    padding: 20px 22px;
+  }
+
+  nav img {
+    width: 60px;
+  }
+
+  .nav-links {
+    gap: 20px;
+    font-size: 9px;
+  }
+
+  .hero {
+    padding: 0 22px 55px;
+  }
+
+  .section {
+    padding: 70px 22px;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .members-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 15px;
+  }
+
+  .member-info h3 {
+    font-size: 16px;
+  }
+
+  .member-info p {
+    font-size: 8px;
+  }
+
+  .music-layout-clean {
+    grid-template-columns: 1fr;
+    width: 100%;
+    row-gap: 30px;
+  }
+
+  .music-player-clean {
+    width: 100%;
+  }
+
+  .music-platforms-clean {
+    align-items: flex-start;
+  }
+
+  .contact-layout-clean {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact-info-clean {
+    align-items: flex-end;
+  }
+
+  .contact-item a {
+    font-size: 18px;
+  }
+
+  footer {
+    padding: 40px 22px;
+    display: block;
+  }
+
+  footer div + div {
+    margin-top: 15px;
+  }
+}
+.language-switcher {
+position: fixed;
+top: 25px;
+right: 7vw;
+z-index: 30;
+display: flex;
+align-items: center;
+gap: 7px;
+font-family: "Inter", sans-serif;
+font-size: 12px;
+font-weight: 400;
+letter-spacing: .12em;
+color: #fff;
+}
+
+.language-switcher button {
+border: 0;
+padding: 0;
+background: transparent;
+color: inherit;
+font: inherit;
+letter-spacing: inherit;
+cursor: pointer;
+opacity: .45;
+}
+
+.language-switcher button:first-child {
+opacity: 1;
+}
+
+.language-switcher button:hover {
+opacity: 1;
+color: #cc3333;
+}
+
+@media (max-width: 800px) {
+.language-switcher {
+top: 20px;
+right: 22px;
+font-size: 9px;
+}
+}
+</style>
+
+<body>
+
+<nav>
+
+
+  <div class="nav-links">
+    <a href="#banda">Banda</a>
+    <a href="#musica">Música</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+
+<div class="language-switcher"><button type="button" data-lang="es">ES</button><span>·</span><button type="button" data-lang="ca">CA</button><span>·</span><button type="button" data-lang="en">EN</button></div>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+  <img src="images/logo/logo-jazy-transparente.png" alt="JAZY" class="hero-logo">
+</section>
+
+
+<!-- BANDA -->
+
+<section class="section" id="banda">
+
+  <div class="section-header">
+    <h2 class="section-title section-title-left">BANDA</h2>
+  </div>
+
+  <div class="members-grid">
+
+    <article class="member">
+      <div class="member-photo"><img src="images/press/jazy.jpg" alt="JAZY"></div>
+      <div class="member-info">
+        <h3>JAZY</h3>
+        <p>Voz y guitarra eléctrica</p>
+      </div>
+    </article>
+
+    <article class="member">
+      <div class="member-photo"><img src="images/press/rochen.jpg" alt="ROCHEN"></div>
+      <div class="member-info">
+        <h3>ROCHEN</h3>
+        <p>Guitarra eléctrica</p>
+      </div>
+    </article>
+
+    <article class="member">
+      <div class="member-photo"><img src="images/press/lu.jpg" alt="LU LIPCHAK"></div>
+      <div class="member-info">
+        <h3>LU LIPCHAK</h3>
+        <p>Bajo y coros</p>
+      </div>
+    </article>
+
+    <article class="member">
+      <div class="member-photo"><img src="images/press/andy.jpg" alt="ANDY"></div>
+      <div class="member-info">
+        <h3>ANDY</h3>
+        <p>Guitarra eléctrica y coros</p>
+      </div>
+    </article>
+
+    <article class="member">
+      <div class="member-photo"><img src="images/press/zalo.jpg" alt="ZALO"></div>
+      <div class="member-info">
+        <h3>ZALO</h3>
+        <p>Batería y coros</p>
+      </div>
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- MUSICA -->
+
+<section class="section" id="musica">
+
+  <div class="section-header">
+    <h2 class="section-title section-title-center">MÚSICA</h2>
+  </div>
+
+  <div class="music-layout-clean">
+  <div class="music-player-clean">
+    <iframe src="https://bandcamp.com/EmbeddedPlayer/v=2/track=91899168/size=large/bgcol=000000/linkcol=cc3333/tracklist=false/artwork=small/" allow="autoplay"></iframe>
+  </div>
+  <div class="music-platforms-clean">
+    <a href="https://open.spotify.com/intl-es/artist/16S91mflUeiDCf8LfmVYLz" target="_blank" class="music-link"><i class="bi bi-spotify"></i> Spotify</a>
+    <a href="https://www.youtube.com/@soyjazy" target="_blank" class="music-link"><i class="bi bi-youtube"></i> YouTube</a>
+    <a href="https://jazy.bandcamp.com" target="_blank" class="music-link"><i class="bi bi-music-note"></i> Bandcamp</a>
+    <a href="https://music.apple.com/ie/artist/jazy/1510425965" target="_blank" class="music-link"><i class="bi bi-apple"></i> Apple Music</a>
+  </div>
+</div>
+</section>
+
+
+<!-- CONTACTO -->
+
+<section class="section" id="contacto">
+  <div class="section-header">
+    <h2 class="section-title section-title-right">CONTACTO</h2>
+  </div>
+
+  <div class="contact-layout-clean">
+
+    <div>
+      <img src="images/press/acostados-1.jpg" alt="JAZY" class="contact-photo-clean">
+    </div>
+
+    <div class="contact-info-clean">
+
+      <div class="contact-item">
+        <h4>Email</h4>
+        <a href="mailto:jazyprod@gmail.com">jazyprod@gmail.com</a>
+      </div>
+
+      <div class="contact-item">
+        <h4>Teléfono</h4>
+        <a href="tel:+34611810119">+34 611 81 01 19</a>
+      </div>
+
+      <div class="contact-item">
+        <h4>Instagram</h4>
+        <a href="https://www.instagram.com/soyjazy" target="_blank">@soyjazy</a>
+      </div>
+
+      <a href="https://drive.google.com/file/d/1KYcyt2eLY2ecBEXBJLv3Ihr-zQg8xwG_/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="contact-presskit">PRESSKIT</a>
+
+    </div>
+  </div>
+</section>
+
+
+<footer>
+
+  <div>JAZY — 2026</div>
+  <div><a href="mailto:jazyprod@gmail.com">jazyprod@gmail.com</a></div>
+
+</footer>
+
+<!-- Bootstrap Icons (necesario para los iconos de música) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<script>
+document.querySelectorAll(".language-switcher button").forEach(function(button) {
+button.addEventListener("click", function() {
+var lang = this.getAttribute("data-lang");
+var nav = document.querySelectorAll(".nav-links a");
+var titles = document.querySelectorAll(".section-title");
+var roles = document.querySelectorAll(".member-info p");
+var headings = document.querySelectorAll(".contact-item h4");
+
+var data = {
+es: ["Banda","Música","Contacto","BANDA","MÚSICA","CONTACTO","Voz y guitarra eléctrica","Guitarra eléctrica","Bajo y coros","Guitarra eléctrica y coros","Batería","Email","Teléfono","Instagram"],
+ca: ["Banda","Música","Contacte","BANDA","MÚSICA","CONTACTE","Veu i guitarra elèctrica","Guitarra elèctrica","Baix i cors","Guitarra elèctrica i cors","Bateria","Email","Telèfon","Instagram"],
+en: ["Band","Music","Contact","BAND","MUSIC","CONTACT","Vocals & electric guitar","Electric guitar","Bass & backing vocals","Electric guitar & backing vocals","Drums","Email","Phone","Instagram"]
+};
+
+var t = data[lang];
+nav[0].textContent = t[0];
+nav[1].textContent = t[1];
+nav[2].textContent = t[2];
+titles[0].textContent = t[3];
+titles[1].textContent = t[4];
+titles[2].textContent = t[5];
+
+for (var i = 0; i < 5; i++) {
+roles[i].textContent = t[6 + i];
+}
+
+for (var i = 0; i < 3; i++) {
+headings[i].textContent = t[11 + i];
+}
+
+document.querySelectorAll(".language-switcher button").forEach(function(b) {
+b.style.opacity = b === button ? "1" : ".45";
+});
+
+localStorage.setItem("jazy-language", lang);
+});
+});
+</script></html>
+
+
+
