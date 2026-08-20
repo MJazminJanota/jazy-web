@@ -27,6 +27,8 @@ html {
 
 body {
   background: #080808;
+  overflow-x: hidden;
+  width: 100%;
   color: #f2f2f2;
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-weight: 300;
@@ -99,6 +101,8 @@ nav img {
     linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.1)),
     url("images/press/luz-amarilla-1.jpg") center center / cover no-repeat;
 }
+
+.hero-photo-mobile { display: none; }
 
 .hero-logo {
   position: absolute;
@@ -363,6 +367,14 @@ footer a:hover {
 /* ==================== MOBILE ==================== */
 
 @media (max-width: 800px) {
+  html, body { width: 100%; margin-left: 0; margin-right: 0; }
+
+  .hero { min-height: 0; height: auto; padding: 0; background: none; display: block; position: relative; }
+
+  .hero-photo-mobile { display: block; width: 100%; max-width: none; height: auto; position: relative; }
+
+  .hero-logo { position: absolute; left: 50%; top: 25%; transform: translateX(-50%); bottom: auto; width: 72vw; max-width: 340px; height: auto; margin: 0; z-index: 2; }
+
 
   nav {
     padding: 20px 22px;
@@ -377,9 +389,6 @@ footer a:hover {
     font-size: 9px;
   }
 
-  .hero {
-    padding: 0 22px 55px;
-  }
 
   .section {
     padding: 70px 22px;
@@ -500,6 +509,7 @@ font-size: 9px;
 <!-- HERO -->
 
 <section class="hero" id="inicio">
+  <img src="images/press/luz-amarilla-1.jpg" alt="JAZY" class="hero-photo-mobile">
   <img src="images/logo/logo-jazy-transparente.png" alt="JAZY" class="hero-logo">
 </section>
 
