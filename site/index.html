@@ -601,6 +601,31 @@ font-size: 9px;
 </section>
 
 
+<!-- PRÓXIMOS SHOWS -->
+<section class="section" id="shows">
+  <div class="section-header">
+    <h2 class="section-title section-title-center">PRÓXIMOS SHOWS</h2>
+  </div>
+
+  <div style="max-width:760px;margin:0 auto;text-align:center;">
+
+    <div style="margin-bottom:75px;">
+      <div style="font-size:12px;font-weight:700;letter-spacing:2px;margin-bottom:10px;">27 SEPTIEMBRE 2026</div>
+      <h3 style="font-size:32px;line-height:1.1;margin:0 0 10px;font-weight:700;">OASYS · BARCELONA</h3>
+      <p style="font-size:16px;margin:0 0 24px;">JAZY · Jimena Gonik · Mona de Magma</p>
+      <a href="https://entradium.com/events/jimena-gonik-mona-de-magma-jazy" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#e21b23;color:#fff;padding:11px 22px;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:1px;">ENTRADAS ↗</a>
+    </div>
+
+    <div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:2px;margin-bottom:10px;">19 NOVIEMBRE 2026</div>
+      <h3 style="font-size:32px;line-height:1.1;margin:0 0 10px;font-weight:700;">FREEDONIA · BARCELONA</h3>
+      <p style="font-size:16px;margin:0 0 8px;">JAZY</p>
+      <p style="font-size:13px;opacity:.55;margin:0;">Más información próximamente</p>
+    </div>
+
+  </div>
+</section>
+
 <!-- CONTACTO -->
 
 <section class="section" id="contacto">
@@ -650,41 +675,112 @@ font-size: 9px;
 
 <script>
 document.querySelectorAll(".language-switcher button").forEach(function(button) {
-button.addEventListener("click", function() {
-var lang = this.getAttribute("data-lang");
-var nav = document.querySelectorAll(".nav-links a");
-var titles = document.querySelectorAll(".section-title");
-var roles = document.querySelectorAll(".member-info p");
-var headings = document.querySelectorAll(".contact-item h4");
 
-var data = {
-es: ["Banda","Música","Contacto","BANDA","MÚSICA","CONTACTO","Voz y guitarra eléctrica","Guitarra eléctrica","Bajo y coros","Guitarra eléctrica y coros","Batería","Email","Teléfono","Instagram"],
-ca: ["Banda","Música","Contacte","BANDA","MÚSICA","CONTACTE","Veu i guitarra elèctrica","Guitarra elèctrica","Baix i cors","Guitarra elèctrica i cors","Bateria","Email","Telèfon","Instagram"],
-en: ["Band","Music","Contact","BAND","MUSIC","CONTACT","Vocals & electric guitar","Electric guitar","Bass & backing vocals","Electric guitar & backing vocals","Drums","Email","Phone","Instagram"]
-};
+  button.addEventListener("click", function() {
 
-var t = data[lang];
-nav[0].textContent = t[0];
-nav[1].textContent = t[1];
-nav[2].textContent = t[2];
-titles[0].textContent = t[3];
-titles[1].textContent = t[4];
-titles[2].textContent = t[5];
+    var lang = this.getAttribute("data-lang");
 
-for (var i = 0; i < 5; i++) {
-roles[i].textContent = t[6 + i];
-}
+    var nav = document.querySelectorAll(".nav-links a");
+    var roles = document.querySelectorAll(".member-info p");
+    var headings = document.querySelectorAll(".contact-item h4");
 
-for (var i = 0; i < 3; i++) {
-headings[i].textContent = t[11 + i];
-}
+    var data = {
 
-document.querySelectorAll(".language-switcher button").forEach(function(b) {
-b.style.opacity = b === button ? "1" : ".45";
-});
+      es: {
+        nav: ["Banda","Música","Contacto"],
+        banda: "BANDA",
+        musica: "MÚSICA",
+        contacto: "CONTACTO",
+        shows: "PRÓXIMOS SHOWS",
+        roles: ["Voz y guitarra eléctrica","Guitarra eléctrica","Bajo y coros","Guitarra eléctrica y coros","Batería"],
+        contact: ["Email","Teléfono","Instagram"],
+        date1: "27 SEPTIEMBRE 2026",
+        tickets: "ENTRADAS ↗",
+        date2: "19 NOVIEMBRE 2026",
+        more: "Más información próximamente"
+      },
 
-localStorage.setItem("jazy-language", lang);
-});
+      ca: {
+        nav: ["Banda","Música","Contacte"],
+        banda: "BANDA",
+        musica: "MÚSICA",
+        contacto: "CONTACTE",
+        shows: "PROPERS CONCERTS",
+        roles: ["Veu i guitarra elèctrica","Guitarra elèctrica","Baix i cors","Guitarra elèctrica i cors","Bateria"],
+        contact: ["Email","Telèfon","Instagram"],
+        date1: "27 SETEMBRE 2026",
+        tickets: "ENTRADES ↗",
+        date2: "19 NOVEMBRE 2026",
+        more: "Més informació properament"
+      },
+
+      en: {
+        nav: ["Band","Music","Contact"],
+        banda: "BAND",
+        musica: "MUSIC",
+        contacto: "CONTACT",
+        shows: "UPCOMING SHOWS",
+        roles: ["Vocals & electric guitar","Electric guitar","Bass & backing vocals","Electric guitar & backing vocals","Drums"],
+        contact: ["Email","Phone","Instagram"],
+        date1: "27 SEPTEMBER 2026",
+        tickets: "TICKETS ↗",
+        date2: "19 NOVEMBER 2026",
+        more: "More information coming soon"
+      }
+
+    };
+
+    var t = data[lang];
+
+    nav[0].textContent = t.nav[0];
+    nav[1].textContent = t.nav[1];
+    nav[2].textContent = t.nav[2];
+
+    document.querySelector("#banda .section-title").textContent = t.banda;
+    document.querySelector("#musica .section-title").textContent = t.musica;
+
+    var showsTitle = document.querySelector("#shows .section-title");
+    if (showsTitle) {
+      showsTitle.textContent = t.shows;
+    }
+
+    var contactoTitle = document.querySelector("#contacto .section-title");
+    if (contactoTitle) {
+      contactoTitle.textContent = t.contacto;
+    }
+
+    for (var i = 0; i < 5; i++) {
+      roles[i].textContent = t.roles[i];
+    }
+
+    for (var i = 0; i < 3; i++) {
+      headings[i].textContent = t.contact[i];
+    }
+
+    var showButtons = document.querySelectorAll("#shows a");
+
+    if (showButtons.length >= 1) {
+      showButtons[0].textContent = t.tickets;
+    }
+
+    var showParagraphs = document.querySelectorAll("#shows p");
+
+    showParagraphs.forEach(function(p) {
+      if (p.textContent.trim() === "Más información próximamente" ||
+          p.textContent.trim() === "Més informació properament" ||
+          p.textContent.trim() === "More information coming soon") {
+        p.textContent = t.more;
+      }
+    });
+
+    document.querySelectorAll(".language-switcher button").forEach(function(b) {
+      b.style.opacity = b === button ? "1" : ".45";
+    });
+
+    localStorage.setItem("jazy-language", lang);
+
+  });
+
 });
 </script></html>
 
