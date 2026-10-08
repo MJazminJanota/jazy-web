@@ -613,7 +613,8 @@ font-size: 9px;
       <div style="font-size:12px;font-weight:700;letter-spacing:2px;margin-bottom:10px;">19 NOVIEMBRE 2026</div>
       <h3 style="font-size:32px;line-height:1.1;margin:0 0 10px;font-weight:700;">FREEDONIA · BARCELONA</h3>
       <p style="font-size:16px;margin:0 0 8px;">JAZY</p>
-      <p style="font-size:13px;opacity:.55;margin:0;">Más información próximamente</p>
+      <p class="show-opening" style="font-size:13px;opacity:.55;margin:0 0 16px;">APERTURA: ISOVEL</p>
+      <a href="https://entradium.com/events/jazy-isovel" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#e21b23;color:#fff;padding:11px 22px;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:1px;">ENTRADAS ↗</a>
     </div>
 
   </div>
@@ -690,7 +691,8 @@ document.querySelectorAll(".language-switcher button").forEach(function(button) 
         date1: "27 SEPTIEMBRE 2026",
         tickets: "ENTRADAS ↗",
         date2: "19 NOVIEMBRE 2026",
-        more: "Más información próximamente"
+        more: "Más información próximamente",
+        opening: "APERTURA: ISOVEL"
       },
 
       ca: {
@@ -704,7 +706,8 @@ document.querySelectorAll(".language-switcher button").forEach(function(button) 
         date1: "27 SETEMBRE 2026",
         tickets: "ENTRADES ↗",
         date2: "19 NOVEMBRE 2026",
-        more: "Més informació properament"
+        more: "Més informació properament",
+        opening: "OBERTURA: ISOVEL"
       },
 
       en: {
@@ -718,7 +721,8 @@ document.querySelectorAll(".language-switcher button").forEach(function(button) 
         date1: "27 SEPTEMBER 2026",
         tickets: "TICKETS ↗",
         date2: "19 NOVEMBER 2026",
-        more: "More information coming soon"
+        more: "More information coming soon",
+        opening: "OPENING: ISOVEL"
       }
 
     };
@@ -754,6 +758,11 @@ document.querySelectorAll(".language-switcher button").forEach(function(button) 
 
     if (showButtons.length >= 1) {
       showButtons[0].textContent = t.tickets;
+    }
+
+    var showOpening = document.querySelector("#shows .show-opening");
+    if (showOpening) {
+      showOpening.textContent = t.opening;
     }
 
     var showParagraphs = document.querySelectorAll("#shows p");
